@@ -1,0 +1,22 @@
+services:
+  app:
+    image: node:22
+    working_dir: /app
+    volumes:
+      - ./:/app
+      - base44_auth:/root/.base44
+      - node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - __VITE_ADDITIONAL_SERVER_ALLOWED_HOSTS
+      - BASE44_PUBLIC_HOST_SUFFIX=${BASE44_PUBLIC_HOST_SUFFIX}
+      - BASE44_SANDBOX_HOST_DOMAIN=${BASE44_SANDBOX_HOST_DOMAIN}
+    command: ["sh", "/app/base44-startup.sh"]
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+volumes:
+  base44_auth:
+  node_modules:
