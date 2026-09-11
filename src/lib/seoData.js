@@ -359,3 +359,74 @@ export const performanceData = {
   ],
   ai: "The Product template drives 78% of poor LCP sessions — a shared 1.4 MB un-minified vendor bundle loads synchronously on all product routes. Splitting it and deferring the review widget would lift LCP below 2.5s on 214 pages at once.",
 };
+
+// Internal Link Intelligence module data — orphans, authority distribution, opportunities.
+export const linkIntel = {
+  authorityByCluster: [
+    { cluster: "blog", label: "Blog", color: "var(--info)", inlinks: 243, share: 41 },
+    { cluster: "docs", label: "Docs", color: "var(--warning)", inlinks: 94, share: 16 },
+    { cluster: "products", label: "Products", color: "hsl(var(--chart-2))", inlinks: 76, share: 13 },
+    { cluster: "tools", label: "Tools", color: "var(--success)", inlinks: 68, share: 11 },
+    { cluster: "core", label: "Core", color: "var(--accent-brand)", inlinks: 58, share: 10 },
+    { cluster: "commercial", label: "Commercial", color: "hsl(var(--chart-5))", inlinks: 53, share: 9 },
+    { cluster: "orphan", label: "Orphans", color: "var(--critical)", inlinks: 0, share: 0 },
+  ],
+  orphans: [
+    { path: "/changelog", score: 55, status: 200, suggestedHub: "/docs", hubScore: 84, reason: "Developer audience overlap" },
+    { path: "/legal/privacy", score: 48, status: 200, suggestedHub: "/about", hubScore: 75, reason: "Trust & compliance cluster" },
+    { path: "/legal/terms", score: 46, status: 200, suggestedHub: "/about", hubScore: 75, reason: "Trust & compliance cluster" },
+    { path: "/careers", score: 41, status: 200, suggestedHub: "/about", hubScore: 75, reason: "Company information cluster" },
+    { path: "/tools/key-generator", score: 0, status: 404, suggestedHub: "/tools", hubScore: 80, reason: "Topical match — tools hub" },
+  ],
+  weakNodes: [
+    { path: "/products/gadget", inlinks: 11, score: 74, cluster: "products", label: "Products" },
+    { path: "/docs/guides", inlinks: 12, score: 76, cluster: "docs", label: "Docs" },
+    { path: "/products/pro-suite", inlinks: 12, score: 79, cluster: "products", label: "Products" },
+    { path: "/about", inlinks: 15, score: 75, cluster: "commercial", label: "Commercial" },
+    { path: "/blog/internal-links", inlinks: 22, score: 77, cluster: "blog", label: "Blog" },
+    { path: "/blog/cwv", inlinks: 29, score: 81, cluster: "blog", label: "Blog" },
+  ],
+  opportunities: [
+    {
+      source: "/blog/jwt-security",
+      target: "/tools/jwt-generator",
+      anchor: "JWT secret generator",
+      reason: ["High semantic relevance", "Target has low internal authority", "Source already ranks for related queries"],
+      score: 94,
+      equity: "High",
+    },
+    {
+      source: "/blog/seo-guide",
+      target: "/tools/key-generator",
+      anchor: "API key generator",
+      reason: ["Topical match", "Target is orphaned", "Source carries high authority"],
+      score: 88,
+      equity: "High",
+    },
+    {
+      source: "/docs/api",
+      target: "/products/pro-suite",
+      anchor: "Pro Suite",
+      reason: ["Commercial intent alignment", "Target under-linked", "Developer audience overlap"],
+      score: 81,
+      equity: "Medium",
+    },
+    {
+      source: "/blog/cwv",
+      target: "/products/widget",
+      anchor: "Widget performance",
+      reason: ["Contextual relevance — CWV article mentions slow pages", "Target needs authority boost"],
+      score: 76,
+      equity: "Medium",
+    },
+    {
+      source: "/docs/guides",
+      target: "/changelog",
+      anchor: "Recent updates",
+      reason: ["Orphan target", "Developer audience overlap", "Source has moderate authority"],
+      score: 72,
+      equity: "Low",
+    },
+  ],
+  ai: "Internal authority is heavily concentrated in the blog cluster (41% of all internal link equity), while commercial pages receive only 9%. Rebalancing links from blog hubs to product pages would improve rankings for 38 commercial pages simultaneously. Additionally, 5 orphan pages with unique content should be re-linked from their topical hubs.",
+};

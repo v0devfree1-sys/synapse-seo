@@ -10,6 +10,7 @@ import ModulePlaceholder from "@/components/overview/ModulePlaceholder";
 import ArchitectureView from "@/components/architecture/ArchitectureView";
 import ContentView from "@/components/content/ContentView";
 import PerformanceView from "@/components/performance/PerformanceView";
+import LinkIntelligenceView from "@/components/links/LinkIntelligenceView";
 import { audit } from "@/lib/seoData";
 
 const MODULES = {
@@ -76,7 +77,7 @@ export default function Workspace() {
       );
       case "pages": return <PagesExplorer />;
       case "ai": return <ModulePlaceholder {...MODULES.ai} />;
-      case "links": return <ModulePlaceholder {...MODULES.links} />;
+      case "links": return <LinkIntelligenceView />;
       case "content": return <ContentView />;
       case "architecture": return <ArchitectureView />;
       case "performance": return <PerformanceView />;
