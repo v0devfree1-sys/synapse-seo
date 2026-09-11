@@ -12,6 +12,7 @@ import ContentView from "@/components/content/ContentView";
 import PerformanceView from "@/components/performance/PerformanceView";
 import LinkIntelligenceView from "@/components/links/LinkIntelligenceView";
 import AIInsightsView from "@/components/ai/AIInsightsView";
+import SettingsView from "@/components/settings/SettingsView";
 import { audit } from "@/lib/seoData";
 
 const MODULES = {
@@ -82,7 +83,7 @@ export default function Workspace() {
       case "content": return <ContentView />;
       case "architecture": return <ArchitectureView />;
       case "performance": return <PerformanceView />;
-      case "settings": return <ModulePlaceholder {...MODULES.settings} />;
+      case "settings": return <SettingsView />;
       default: return <Overview domain={domain || audit.domain} onNavigate={handleNavigate} />;
     }
   };

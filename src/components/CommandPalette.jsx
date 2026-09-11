@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import {
   Search, Radar, LayoutDashboard, AlertTriangle, FileText, Link2,
-  Network, Gauge, Sparkles, Globe, CornerDownLeft, ChevronUp, ChevronDown,
+  Network, Gauge, Sparkles, Globe, CornerDownLeft, ChevronUp, ChevronDown, Settings,
 } from "lucide-react";
 
 const ACTIONS = [
@@ -14,6 +14,7 @@ const ACTIONS = [
   { id: "architecture", label: "Go to Architecture", hint: "Site graph", icon: Network, group: "Navigate" },
   { id: "performance", label: "Go to Performance", hint: "Core Web Vitals", icon: Gauge, group: "Navigate" },
   { id: "ai", label: "Open AI Insights", hint: "Intelligence feed", icon: Sparkles, group: "Navigate" },
+  { id: "settings", label: "Open Settings", hint: "Crawl config & preferences", icon: Settings, group: "Navigate" },
   { id: "find-url", label: "Find URL", hint: "Search crawled pages", icon: Search, group: "Filter" },
   { id: "filter-critical", label: "Filter Critical Issues", hint: "12 critical", icon: AlertTriangle, group: "Filter" },
 ];
